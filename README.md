@@ -31,11 +31,20 @@ How to build LineageOS
 
             <!-- Pinned blobs for lilac -->
             <project name="whatawurst/android_vendor_sony_lilac" path="vendor/sony/lilac" remote="github" revision="lineage-18.1" />
+
+            <!-- OpenGApps -->
+            <remote name="opengapps" fetch="https://github.com/opengapps/"  />
+            <remote name="opengapps-gitlab" fetch="https://gitlab.opengapps.org/opengapps/"  />
+            <project path="vendor/opengapps/build" name="aosp_build" revision="master" remote="opengapps" />
+            <project path="vendor/opengapps/sources/all" name="all" clone-depth="1" revision="master" remote="opengapps-gitlab" />
+            <project path="vendor/opengapps/sources/arm" name="arm" clone-depth="1" revision="master" remote="opengapps-gitlab" />
+            <project path="vendor/opengapps/sources/arm64" name="arm64" clone-depth="1" revision="master" remote="opengapps-gitlab" />
         </manifest>
 
 * Sync the repo:
 
         repo sync
+        repo forall -r vendor/opengapps/sources -c git lfs pull
 
 * Extract vendor blobs
 
