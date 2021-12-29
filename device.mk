@@ -36,6 +36,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 DEVICE_PATH := device/sony/lilac
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH)
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
@@ -43,11 +47,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(DEVICE_PATH)/overlay/packages/apps/CarrierConfig
-
 ### POWER
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/config/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+TARGET_USE_CUSTOM_POWERHINT := true
 
 include $(DEVICE_PATH)/device/*.mk
