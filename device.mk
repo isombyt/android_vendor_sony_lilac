@@ -20,13 +20,13 @@ DONT_DEXPREOPT_PREBUILTS := true
 GAPPS_FORCE_MMS_OVERRIDES := true
 GAPPS_FORCE_DIALER_OVERRIDES := true
 # GAPPS From mini
-GAPPS_PRODUCT_PACKAGES += PrebuiltDeskClockGoogle CalculatorGoogle CarrierServices
+GAPPS_PRODUCT_PACKAGES += PrebuiltDeskClockGoogle CalculatorGoogle CarrierServices YouTube
 # GAPPS From full
 GAPPS_PRODUCT_PACKAGES += Drive PrebuiltKeep PlayGames Recorder
 # GAPPS From stock
 GAPPS_PRODUCT_PACKAGES += ContactsGoogle StorageManagerGoogle GooglePay CalendarGooglePrebuilt LatinImeGoogle StorageManagerGoogle TranslatePrebuilt GoogleVrCore Wallet
 # GAPPS From super
-GAPPS_PRODUCT_PACKAGES += EditorsDocs EditorsSheets
+GAPPS_PRODUCT_PACKAGES += EditorsDocs EditorsSheets DMAgent
 
 $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
 endif
